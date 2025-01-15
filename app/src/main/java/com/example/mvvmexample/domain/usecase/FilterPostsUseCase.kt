@@ -7,8 +7,8 @@ class FilterPostsUseCase @Inject constructor() {
     operator fun invoke(postsList: List<Post>, filter: String): List<Post> {
         val lowercaseFilter = filter.lowercase()
         return postsList.filter { post ->
-            listOf(post.title, post.content, post.slug).any {
-                it.lowercase().contains(lowercaseFilter)
+            sequenceOf(post.title, post.content, post.slug).any {
+                it.contains(lowercaseFilter, ignoreCase = true)
             }
         }
     }

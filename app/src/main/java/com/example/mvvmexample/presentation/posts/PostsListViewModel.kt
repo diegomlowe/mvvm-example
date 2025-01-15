@@ -8,7 +8,6 @@ import com.example.mvvmexample.domain.usecase.GetRemotePostsListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
-
 @HiltViewModel
 class PostsListViewModel @Inject constructor(
     private val getRemotePostsListUseCase: GetRemotePostsListUseCase,
@@ -30,5 +29,4 @@ class PostsListViewModel @Inject constructor(
         val filteredList = filterPostsUseCase.invoke(unfilteredPostsList, filter)
         updateUiState(data = filteredList)
     }
-
 }
